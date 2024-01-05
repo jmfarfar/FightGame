@@ -8,4 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Development/PlayerSetup.unity
+    guid: d872566f92d2a364ab180a58efc36bf3
+  - enabled: 1
+    path: Assets/Scenes/Development/Multiplayer.unity
+    guid: 345dfc216e4afe74da426aa067ce7649
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 68820db2f6b0e3f49968555d01850ff0,
+      type: 2}
