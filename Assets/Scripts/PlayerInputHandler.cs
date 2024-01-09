@@ -10,6 +10,7 @@ public class PlayerInputHandler : MonoBehaviour
     //private PlayerInput playerInput;
     private Mover mover;
     private PlayerConfiguration playerConfig;
+    public Vector2 MovementValue { get; private set; }  // ES-2024.01.07: Variable para el movimiento que leerá la StateMachine
 
     [SerializeField] private MeshRenderer playerMesh;
 
@@ -47,13 +48,14 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         //if (mover != null)
-        mover.SetInputVector(context.ReadValue<Vector2>());
+    //    mover.SetInputVector(context.ReadValue<Vector2>()); // ES-2024.01.07: comentamos este Move
+        MovementValue = context.ReadValue<Vector2>();       // ES-2024.01.07: Variable para el movimiento que leerá la StateMachine 
     }
 
     public void InitializePlayer(PlayerConfiguration pc)
     {
         playerConfig = pc;
-        playerMesh.material = pc.PlayerMaterial;
+        playerMesh.material = pc.PlayerMaterial; 
         playerConfig.Input.onActionTriggered += Input_onActionTriggered;
     }
 
