@@ -37,8 +37,9 @@ public class PlayerConfigurationManager : MonoBehaviour
         _playerConfigs[index].IsReady = true;
         if (_playerConfigs.Count == maxPlayers && _playerConfigs.All(p => p.IsReady == true))
         {
-           //SceneManager.LoadScene("Multiplayer"); // ES-2024.01.07: comentamos este para pruebas
-           SceneManager.LoadScene("ES_Test"); // ES-2024.01.07: agregamos esta escena para Test
+            //SceneManager.LoadScene("Multiplayer"); // ES-2024.01.07: comentamos este para pruebas
+            // SceneManager.LoadScene("ES_Test"); // ES-2024.01.07: agregamos esta escena para Test
+            SceneManager.LoadScene("Game"); //Test de juego con UI
         }
     }
 

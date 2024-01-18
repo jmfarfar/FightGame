@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class HUDManager : MonoBehaviour
 {
 
+    [SerializeField] private float maxLifeP1 = 100;
+
     [Header("Player1")]
     [SerializeField] private Image lifeBarP1;
-    [SerializeField] private float maxLifeP1 = 100;
     float currentLifeP1;
     public bool IsLifeP1Empty { get; set; }
 
@@ -43,9 +44,15 @@ public class HUDManager : MonoBehaviour
             IsLifeP2Empty = true;
         }
 
+        Timer();
+    }
+
+    private void Timer()
+    {
         time += Time.deltaTime;
         currentTime = (int)time;
         timer.text = ((int)maxTime - currentTime).ToString();
+
     }
 
     public void P1DamageReceived(int damage)

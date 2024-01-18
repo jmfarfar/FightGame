@@ -609,6 +609,114 @@ public partial class @Players: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""0ce31425-6687-4ca6-8115-cd6240f92d8d"",
+            ""actions"": [
+                {
+                    ""name"": ""Aceptar"",
+                    ""type"": ""Button"",
+                    ""id"": ""e8826907-863f-4df0-829e-b73204c53c38"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Regresar"",
+                    ""type"": ""Button"",
+                    ""id"": ""b51d3cf5-5974-471a-a3e8-c19a05e11d7a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""2d17b65c-95cc-4349-b4d2-7fe5ed9e57d3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""acba904f-cf89-4525-9f7b-5a9d2f6aebb3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""932f3431-f86a-4ccb-858a-055a3a4ce115"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ad457aa2-f6c9-40d3-9b0c-ccebdafdb57c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aceptar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""99b1a937-8214-425b-9d71-85633904eb18"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Regresar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9299753f-469c-4481-850f-32fb15581ff9"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ee388b2-3d7a-4b9a-a8ec-2c34ca276b34"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4284f4e-618c-4a4e-85e0-d63939988c9e"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -646,6 +754,13 @@ public partial class @Players: IInputActionCollection2, IDisposable
         m_Switch_HPunch = m_Switch.FindAction("HPunch", throwIfNotFound: true);
         m_Switch_CastMagic = m_Switch.FindAction("CastMagic", throwIfNotFound: true);
         m_Switch_Shield = m_Switch.FindAction("Shield", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Aceptar = m_UI.FindAction("Aceptar", throwIfNotFound: true);
+        m_UI_Regresar = m_UI.FindAction("Regresar", throwIfNotFound: true);
+        m_UI_Start = m_UI.FindAction("Start", throwIfNotFound: true);
+        m_UI_LeftSelect = m_UI.FindAction("LeftSelect", throwIfNotFound: true);
+        m_UI_RightSelect = m_UI.FindAction("RightSelect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1055,6 +1170,84 @@ public partial class @Players: IInputActionCollection2, IDisposable
         }
     }
     public SwitchActions @Switch => new SwitchActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_Aceptar;
+    private readonly InputAction m_UI_Regresar;
+    private readonly InputAction m_UI_Start;
+    private readonly InputAction m_UI_LeftSelect;
+    private readonly InputAction m_UI_RightSelect;
+    public struct UIActions
+    {
+        private @Players m_Wrapper;
+        public UIActions(@Players wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Aceptar => m_Wrapper.m_UI_Aceptar;
+        public InputAction @Regresar => m_Wrapper.m_UI_Regresar;
+        public InputAction @Start => m_Wrapper.m_UI_Start;
+        public InputAction @LeftSelect => m_Wrapper.m_UI_LeftSelect;
+        public InputAction @RightSelect => m_Wrapper.m_UI_RightSelect;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @Aceptar.started += instance.OnAceptar;
+            @Aceptar.performed += instance.OnAceptar;
+            @Aceptar.canceled += instance.OnAceptar;
+            @Regresar.started += instance.OnRegresar;
+            @Regresar.performed += instance.OnRegresar;
+            @Regresar.canceled += instance.OnRegresar;
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
+            @LeftSelect.started += instance.OnLeftSelect;
+            @LeftSelect.performed += instance.OnLeftSelect;
+            @LeftSelect.canceled += instance.OnLeftSelect;
+            @RightSelect.started += instance.OnRightSelect;
+            @RightSelect.performed += instance.OnRightSelect;
+            @RightSelect.canceled += instance.OnRightSelect;
+        }
+
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @Aceptar.started -= instance.OnAceptar;
+            @Aceptar.performed -= instance.OnAceptar;
+            @Aceptar.canceled -= instance.OnAceptar;
+            @Regresar.started -= instance.OnRegresar;
+            @Regresar.performed -= instance.OnRegresar;
+            @Regresar.canceled -= instance.OnRegresar;
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
+            @LeftSelect.started -= instance.OnLeftSelect;
+            @LeftSelect.performed -= instance.OnLeftSelect;
+            @LeftSelect.canceled -= instance.OnLeftSelect;
+            @RightSelect.started -= instance.OnRightSelect;
+            @RightSelect.performed -= instance.OnRightSelect;
+            @RightSelect.canceled -= instance.OnRightSelect;
+        }
+
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IXBoxActions
     {
         void OnDodge(InputAction.CallbackContext context);
@@ -1091,5 +1284,13 @@ public partial class @Players: IInputActionCollection2, IDisposable
         void OnHPunch(InputAction.CallbackContext context);
         void OnCastMagic(InputAction.CallbackContext context);
         void OnShield(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnAceptar(InputAction.CallbackContext context);
+        void OnRegresar(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
+        void OnLeftSelect(InputAction.CallbackContext context);
+        void OnRightSelect(InputAction.CallbackContext context);
     }
 }
