@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Diagnostics;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerSetupMenuController : MonoBehaviour
@@ -14,6 +15,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     [SerializeField] private GameObject readyPanel;
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private Button readyButton;
+    [SerializeField] private EventSystem eventSystem;
 
     private float ignoreInputTime = 1.5f;
     private bool inputEnabled;
@@ -42,8 +44,11 @@ public class PlayerSetupMenuController : MonoBehaviour
         }
 
         PlayerConfigurationManager.Instance.SetPlayerCharacter(playerIndex, character);
-        menuPanel.SetActive(true);
+        //menuPanel.SetActive(true);
+        readyPanel.SetActive(true);
+        readyButton.Select();
         characterPanel.SetActive(false);
+        //eventSystem.firstSelectedGameObject = menuPanel.gameObject.GetComponentInChildren<Button>().gameObject;
     }
 
     public void SetColor(Material color)
