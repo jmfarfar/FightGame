@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerFreeLookState : PlayerBaseState
 {
-    
+
+    private readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");    
     private readonly int FreeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
     private const float AnimatorDampTime = 0.1f;
+    private const float CrossFadeDuration = 0.1f;    
 
     public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine) 
     { 
@@ -15,18 +17,39 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
-
+        stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime)
     {
+
+        if (stateMachine.PlayerInputHandler.isAttacking)
+        {
+            stateMachine.SwitchState(new PlayerAttackingState(stateMachine, stateMachine.PlayerInputHandler.attackIndex));
+            return;
+        }
+
+        if (stateMachine.PlayerInputHandler.isBlocking)
+        {
+            stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
+            return;
+        }
+
+        if (stateMachine.PlayerInputHandler.isDodging)
+        {
+            if (stateMachine.PlayerInputHandler.MovementValue == Vector2.zero) { return; }
+            stateMachine.SwitchState(new PlayerDodgeState(stateMachine, stateMachine.PlayerInputHandler.MovementValue));
+            return;
+        }
+
         Vector3 movement = new Vector3();
         movement.x = stateMachine.PlayerInputHandler.MovementValue.x;
         movement.y = 0;
         movement.z = stateMachine.PlayerInputHandler.MovementValue.y;
         movement.Normalize();
 
-        stateMachine.Controller.Move(movement * stateMachine.FreeLookMovementSpeed * deltaTime);
+        Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime);
+//        stateMachine.Controller.Move(movement * stateMachine.FreeLookMovementSpeed * deltaTime);
 
         if (stateMachine.PlayerInputHandler.MovementValue == Vector2.zero) 
         {
