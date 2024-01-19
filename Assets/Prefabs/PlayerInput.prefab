@@ -195,9 +195,13 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 02022cde-56c1-4430-8946-3d0691b13fed
     m_ActionName: Gamepad/Select[/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a55dd0de-241e-40e1-8909-6e51aae26603
+    m_ActionName: Keyboard/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Gamepad
+  m_DefaultActionMap: Keyboard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &4861372716570121212
@@ -212,3 +216,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6b82d4687a22442b3afcd343ca8728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMesh: {fileID: 0}

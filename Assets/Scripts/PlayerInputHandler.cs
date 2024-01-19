@@ -11,6 +11,10 @@ public class PlayerInputHandler : MonoBehaviour
     private Mover mover;
     private PlayerConfiguration playerConfig;
     public Vector2 MovementValue { get; private set; }  // ES-2024.01.07: Variable para el movimiento que leerá la StateMachine
+    public bool isAttacking { get; private set; }
+    public int attackIndex { get; private set; }
+    public bool isBlocking { get; private set; }
+   public bool isDodging { get; private set; }
 
     [SerializeField] private MeshRenderer playerMesh;
 
@@ -52,6 +56,43 @@ public class PlayerInputHandler : MonoBehaviour
         MovementValue = context.ReadValue<Vector2>();       // ES-2024.01.07: Variable para el movimiento que leerá la StateMachine 
     }
 
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isAttacking = true;
+        }
+        else if (context.canceled)
+        {
+            isAttacking = false;
+        }
+    }
+
+    public void OnBlocking(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isBlocking = true;
+        }
+        else if (context.canceled)
+        {
+            isBlocking = false;
+        }
+    }
+
+    public void OnDodge(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isDodging = true;
+        }
+        else if (context.canceled)
+        {
+            isDodging = false;
+        }
+    }
+
     public void InitializePlayer(PlayerConfiguration pc)
     {
         playerConfig = pc;
@@ -65,5 +106,34 @@ public class PlayerInputHandler : MonoBehaviour
         {
             OnMove(obj);
         }
+
+        if (obj.action.name == controls.Gamepad.Dodge.name)
+        {
+            OnDodge(obj);
+        }
+
+        if (obj.action.name == controls.Gamepad.LPunch.name)
+        {
+            attackIndex = 0;
+            OnAttack(obj);
+        }
+
+        if (obj.action.name == controls.Gamepad.HPunch.name)
+        {
+            attackIndex = 3;
+            OnAttack(obj);
+        }
+
+        if (obj.action.name == controls.Gamepad.CastMagic.name)
+        {
+            attackIndex = 4;
+            OnAttack(obj);
+        }
+
+        if (obj.action.name == controls.Gamepad.Shield.name)
+        {
+            OnBlocking(obj);
+        }
+
     }
 }
