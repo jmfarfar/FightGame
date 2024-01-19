@@ -10,6 +10,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     private int playerIndex;
 
     [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private GameObject characterPanel;
     [SerializeField] private GameObject readyPanel;
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private Button readyButton;
@@ -31,6 +32,18 @@ public class PlayerSetupMenuController : MonoBehaviour
         {
             inputEnabled = true;
         }
+    }
+
+    public void SetCharacter(int character)
+    {
+        if (!inputEnabled)
+        {
+            return;
+        }
+
+        PlayerConfigurationManager.Instance.SetPlayerCharacter(playerIndex, character);
+        menuPanel.SetActive(true);
+        characterPanel.SetActive(false);
     }
 
     public void SetColor(Material color)

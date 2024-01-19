@@ -32,6 +32,11 @@ public class PlayerConfigurationManager : MonoBehaviour
         _playerConfigs[index].PlayerMaterial = color;
     }
 
+    public void SetPlayerCharacter(int index, int character)
+    {
+        _playerConfigs[index].Character = character;
+    }
+
     public void ReadyPlayer(int index)
     {
         _playerConfigs[index].IsReady = true;

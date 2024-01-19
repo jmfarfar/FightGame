@@ -15,4 +15,5 @@ public class PlayerConfiguration
     public int PlayerIndex { get; set; }
     public bool IsReady { get; set; }
     public Material PlayerMaterial { get; set; }
+    public int Character { get; set; }
 }

@@ -17,14 +17,15 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null)
         {
-            instance = this;
+            //instance = this;
         }
         else
         {
+            instance = this;
             //Destroy(gameObject);
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(instance);
         }
 
         audioSource = GetComponent<AudioSource>();
