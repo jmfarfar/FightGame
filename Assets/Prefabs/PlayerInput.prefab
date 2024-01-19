@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1678096656040237245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351537080668347604}
+  - component: {fileID: 3742936027192769487}
+  - component: {fileID: 4861372716570121212}
+  m_Layer: 0
+  m_Name: PlayerInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1351537080668347604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678096656040237245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3742936027192769487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678096656040237245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4f10d7976c933c44a8833630562a2d66,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2cb63a64-895d-4c59-a4d9-2af0d434bced
+    m_ActionName: XBox/Dodge[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f014899-73bb-4f1c-8814-a537d99694c5
+    m_ActionName: XBox/LPunch[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4861372716570121212}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 50c06283-ee2f-40cb-b4b3-eb748060b16c
+    m_ActionName: XBox/Movement[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 19ec8474-2964-4a25-aec2-bfb16e945d73
+    m_ActionName: XBox/HPunch[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 75b9041d-af95-4b5c-9d2f-7174cd4ecee7
+    m_ActionName: XBox/CastMagic[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d4e4e7ee-72c8-45ff-bfbb-cc467b9f6255
+    m_ActionName: XBox/Shield[/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d71bea42-3699-48d7-82e6-20d71697bda3
+    m_ActionName: PC/Dodge[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58c19dc1-cff3-4859-b9ca-4ff4d39a1a81
+    m_ActionName: PC/LPunch[/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a4ffa73-e2a4-4562-845c-d8a1aae0ce46
+    m_ActionName: PC/Movement[/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/downArrow,/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b7c11bb2-dabf-48bc-a2fa-85b6e563e294
+    m_ActionName: PC/HPunch[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 97fa8a64-fa71-41fd-9506-bde64d57d31e
+    m_ActionName: PC/CastMagic[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0671b515-87c1-4081-b398-0ab7f2bf57ec
+    m_ActionName: PC/Shield[/Keyboard/leftCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ee173791-d668-4bbc-8945-0208e94415e6
+    m_ActionName: Switch/Dodge[/SwitchProControllerHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c3174ca7-0a5c-47b6-b5ea-f8cf0d2170f8
+    m_ActionName: Switch/LPunch[/SwitchProControllerHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4861372716570121212}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: de44d895-40da-49ce-a1ee-f1934201801e
+    m_ActionName: Switch/Movement[/SwitchProControllerHID/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1ba279fc-298a-4b33-82b2-2f5521279a35
+    m_ActionName: Switch/HPunch[/SwitchProControllerHID/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d49aa442-cd5e-4342-9037-02f0102738e0
+    m_ActionName: Switch/CastMagic[/SwitchProControllerHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7c486910-778d-49b8-b9af-bc7787b533ad
+    m_ActionName: Switch/Shield[/SwitchProControllerHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bd455072-0a65-43a5-8ebf-61bc71b3f1fd
+    m_ActionName: Gamepad/Dodge
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24ef4e2c-2c05-46e4-9d73-610f9c5f0a43
+    m_ActionName: Gamepad/LPunch
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4861372716570121212}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b3d0bef6-1e33-4dc5-87ae-9d1e1fecbbd9
+    m_ActionName: Gamepad/Movement
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 52340f4e-b12d-4797-8a2f-256fb61497cf
+    m_ActionName: Gamepad/HPunch
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c0857f7d-763f-40f1-b151-5d23259fea76
+    m_ActionName: Gamepad/CastMagic
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 23186d3c-6aef-4dce-b0ef-8318f90e2fb8
+    m_ActionName: Gamepad/Shield
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 02022cde-56c1-4430-8946-3d0691b13fed
+    m_ActionName: Gamepad/Select[/XInputControllerWindows/start]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gamepad
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &4861372716570121212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678096656040237245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6b82d4687a22442b3afcd343ca8728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
