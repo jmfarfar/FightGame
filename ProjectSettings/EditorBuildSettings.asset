@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Development/Multiplayer.unity
     guid: 345dfc216e4afe74da426aa067ce7649
   - enabled: 1
+    path: Assets/Scenes/Development/Game.unity
+    guid: 084c31c45461c9a489b82f6fbd99c74f
+  - enabled: 1
     path: Assets/Scenes/Development/ES_Test.unity
     guid: e9e23726423c44343a1da2c0a397f32a
   m_configObjects:
