@@ -5,7 +5,7 @@ using UnityEngine;
 public class InitializeLevel : MonoBehaviour
 {
     [SerializeField] private Transform[] playerSpawns;
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject[] playerPrefab;
 
     // Start is called before the first frame update
     void Awake()
@@ -13,7 +13,7 @@ public class InitializeLevel : MonoBehaviour
         var playerConfigs = PlayerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
         for (int i = 0; i < playerConfigs.Length; i++)
         {
-            var player = Instantiate(playerPrefab, playerSpawns[i].position, playerSpawns[i].rotation, gameObject.transform);
+            var player = Instantiate(playerPrefab[playerConfigs[i].Character], playerSpawns[i].position, playerSpawns[i].rotation, gameObject.transform);
             player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i]);
         }
     }
