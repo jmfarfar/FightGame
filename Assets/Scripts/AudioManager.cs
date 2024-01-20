@@ -48,6 +48,11 @@ public class AudioManager : MonoBehaviour
         backgroundMusic.PlayOneShot(clip);
     }
 
+    public void PlayAmbiental()
+    {
+        backgroundMusic.Play();
+    }
+
     public void StopBackgroundClip()
     {
         if (backgroundMusic.isPlaying)
@@ -55,5 +60,24 @@ public class AudioManager : MonoBehaviour
             backgroundMusic.Stop();
 
         }
+    }
+
+    public void StopClip()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+
+        }
+    }
+
+    public bool IsPlaying()
+    {
+        return audioSource.isPlaying;
+    }
+
+    public bool IsBackgroundPlaying()
+    {
+        return backgroundMusic.isPlaying;
     }
 }
