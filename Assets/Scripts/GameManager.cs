@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
 
     public void SelectCharacter()
     {
-        // Change with the real scene name
         SceneManager.LoadScene("PlayerSetup");
     }
 

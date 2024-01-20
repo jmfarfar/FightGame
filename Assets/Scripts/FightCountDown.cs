@@ -42,12 +42,12 @@ public class FightCountDown : MonoBehaviour
         image.gameObject.SetActive(true);
         while (timer < 1f)
         {
-            AudioManager.Instance.PlaySound(clip);
             image.rectTransform.localScale = new Vector2(animationCurve.Evaluate(timer), animationCurve.Evaluate(timer));
             image.color = new Color(1f, 1f, 1f, animationCurve.Evaluate(1 - timer));
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        AudioManager.Instance.PlaySound(clip);
         image.gameObject.SetActive(false);
         counter++;
         if (counter < countDownPanels.Length)
