@@ -25,8 +25,6 @@ public class HUDManager : MonoBehaviour
     float time;
     int currentTime;
 
-    [SerializeField] private GameObject gameOverPanel;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +59,6 @@ public class HUDManager : MonoBehaviour
             else
                 IsLifeP1Empty = true;
 
-            gameOverPanel.SetActive(true);
         }
     }
 
