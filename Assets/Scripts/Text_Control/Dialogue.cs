@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class Dialogue : MonoBehaviour
 {
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private GameObject nextButton;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
     private bool didDialogueStart;
@@ -17,14 +19,20 @@ public class Dialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        didDialogueStart = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+
+    }
+
+    public void OnDialogue()
+    {
+        if (lineIndex < dialogueLines.Length)
         {
+
             if (!didDialogueStart)
             {
                 StartDialogue();
@@ -33,6 +41,10 @@ public class Dialogue : MonoBehaviour
             {
                 NextDialogueLine();
             }
+        }
+        else
+        {
+            dialoguePanel.SetActive(false);
         }
     }
 
@@ -47,19 +59,14 @@ public class Dialogue : MonoBehaviour
     private void NextDialogueLine()
     {
         lineIndex++;
-        if(lineIndex < dialogueLines.Length)
-        {
-            StartCoroutine(ShowLine());
-        }
-        else
-        {
-            didDialogueStart = false;
-            dialoguePanel.SetActive(false);
-        }
+
+        StartCoroutine(ShowLine());
+
     }
 
     private IEnumerator ShowLine()
     {
+        nextButton.SetActive(false);
         dialogueText.text = string.Empty;
 
         foreach (char ch in dialogueLines[lineIndex])
@@ -67,6 +74,8 @@ public class Dialogue : MonoBehaviour
             dialogueText.text += ch;
             yield return new WaitForSeconds(typingTime);
         }
+        yield return new WaitForSeconds(0.5f);
+        nextButton.SetActive(true);
     }
 
 }

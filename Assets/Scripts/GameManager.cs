@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void IntroScene()
+    {
+        SceneManager.LoadScene("Historia");
+    }
+
     public void MainMenuScene()
     {
         SceneManager.LoadScene("MianMenu");
