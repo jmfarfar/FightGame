@@ -11,12 +11,17 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (AudioManager.Instance.IsPlaying())
+        {
+            AudioManager.Instance.StopClip();
+            AudioManager.Instance.PlayAmbiental();
+
+        }
         StartCoroutine(DeactivatePlayers());
     }
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
