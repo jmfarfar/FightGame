@@ -754,7 +754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6955933512341692873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1095,6 +1095,8 @@ MonoBehaviour:
   lifeBarP2: {fileID: 6150513876266091258}
   timer: {fileID: 7612160486481420686}
   gameOverPanel: {fileID: 0}
+  p1Imgs: []
+  p2Imgs: []
 --- !u!1 &6087650282443889822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1682077094157949539
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1410,8 +1412,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1682077094157949539}
   - {fileID: 3828021041692567348}
+  - {fileID: 1682077094157949539}
   m_Father: {fileID: 8895738544384054674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}

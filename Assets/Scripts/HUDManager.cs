@@ -25,12 +25,27 @@ public class HUDManager : MonoBehaviour
     float time;
     int currentTime;
 
-    //[SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject gameOverPanel;
+
+    [SerializeField] private List<Image> p1Imgs;
+    [SerializeField] private List<Image> p2Imgs;
+
+    private void Awake()
+    {
+        for (int i = 0; i < p1Imgs.Count; i++)
+        {
+            p1Imgs[i].gameObject.SetActive(false);
+            p2Imgs[i].gameObject.SetActive(false);
+
+        }
+
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         currentLifeP1 = currentLifeP2 = maxLifeP1;
+
     }
 
     // Update is called once per frame
@@ -61,7 +76,7 @@ public class HUDManager : MonoBehaviour
             else
                 IsLifeP1Empty = true;
             Debug.Log("Time out");
-            //gameOverPanel.SetActive(true);
+            gameOverPanel.SetActive(true);
         }
     }
 
@@ -83,5 +98,14 @@ public class HUDManager : MonoBehaviour
     {
         currentLifeP2 -= damage;
         lifeBarP2.fillAmount = currentLifeP2 / maxLifeP1;
+    }
+    public void SetP1Image(int id)
+    {
+        p1Imgs[id].gameObject.SetActive(true);
+    }
+
+    public void SetP2Image(int id)
+    {
+        p2Imgs[id].gameObject.SetActive(true);
     }
 }

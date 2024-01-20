@@ -8,6 +8,8 @@ public class InitializeLevel : MonoBehaviour
     [SerializeField] private Transform[] playerSpawns;
     [SerializeField] private GameObject[] playerPrefab;
 
+    [SerializeField] private HUDManager hudManager;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +20,16 @@ public class InitializeLevel : MonoBehaviour
         {
             var player = Instantiate(playerPrefab[playerConfigs[i].Character], playerSpawns[i].position, playerSpawns[i].rotation, gameObject.transform);
             player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i]);
+
+            switch (i)
+            {
+                case 0: // Player1
+                    hudManager.SetP1Image(playerConfigs[i].Character);
+                    break;
+                case 1: // Player2
+                    hudManager.SetP2Image(playerConfigs[i].Character);
+                    break;
+            }
         }
     }
 
