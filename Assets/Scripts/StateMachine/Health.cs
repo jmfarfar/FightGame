@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
 
     [SerializeField] private int maxHealth = 100;
+    public Image barImg;
 
     private int health;
     private bool isInvulnerable;
@@ -34,11 +36,12 @@ public class Health : MonoBehaviour
         health = Mathf.Max(health - damage, 0);
         OnTakeDamage?.Invoke();
 
+        barImg.fillAmount = (float)health / (float)maxHealth;
+
         if (health ==0)
         {
             OnDie?.Invoke();
         }
         
-        Debug.Log(health);
     }
 }

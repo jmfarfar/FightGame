@@ -60,6 +60,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MianMenu");
     }
 
+    public void GameScene()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
     public void CreditsScene()
     {
         SceneManager.LoadScene("CreditosMenu");

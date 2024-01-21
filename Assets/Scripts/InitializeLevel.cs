@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InitializeLevel : MonoBehaviour
 {
     [SerializeField] private AudioClip gameClip;
     [SerializeField] private Transform[] playerSpawns;
     [SerializeField] private GameObject[] playerPrefab;
+    [SerializeField] private Image[] bars;
 
     [SerializeField] private HUDManager hudManager;
 
@@ -20,6 +22,7 @@ public class InitializeLevel : MonoBehaviour
         {
             var player = Instantiate(playerPrefab[playerConfigs[i].Character], playerSpawns[i].position, playerSpawns[i].rotation, gameObject.transform);
             player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i]);
+            player.GetComponent<Health>().barImg = bars[i];
 
             switch (i)
             {
