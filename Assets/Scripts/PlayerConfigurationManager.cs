@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerConfigurationManager : MonoBehaviour
 {
-    private List<PlayerConfiguration> _playerConfigs;
+    private List<PlayerConfiguration> _playerConfigs = new List<PlayerConfiguration>();
 
     [SerializeField] private int maxPlayers = 2;
 
@@ -23,7 +23,18 @@ public class PlayerConfigurationManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(Instance);
-            _playerConfigs = new List<PlayerConfiguration>();
+            //_playerConfigs = new List<PlayerConfiguration>();
+        }
+
+        var pcs = GameObject.FindObjectsOfType<SpawnPlayerSetupMenu>().ToList();
+        if (pcs.Count > 0)
+        {
+            _playerConfigs.Clear();
+            for (int i = 0; i < pcs.Count; i++)
+            {
+                Destroy(pcs[i].gameObject);
+
+            }
         }
     }
 

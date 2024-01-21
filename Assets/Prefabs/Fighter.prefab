@@ -902,6 +902,7 @@ GameObject:
   - component: {fileID: 68068596057671959}
   - component: {fileID: 1457224748168747295}
   - component: {fileID: 3203995015720476629}
+  - component: {fileID: 5926385170166444190}
   m_Layer: 0
   m_Name: Fighter
   m_TagString: Player
@@ -1098,7 +1099,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2013e2e429ceff4595410063834cf75, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1133,6 +1134,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicLogic: {fileID: 4932909277469675542}
+--- !u!114 &5926385170166444190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2668569294776621651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709e873b345ac5b449fcb375c821d577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2782271743538680762
 GameObject:
   m_ObjectHideFlags: 0
